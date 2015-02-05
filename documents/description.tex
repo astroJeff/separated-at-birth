@@ -1,0 +1,219 @@
+\documentclass[12pt,preprint]{hackaastex}
+\usepackage{lscape, longtable, hyperref, graphicx, subfigure}
+\usepackage{amsmath,amsfonts,amssymb,epsfig,epstopdf,color,multirow}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+\newcommand{\Msun}{\ifmmode {M_{\odot}}\else${M_{\odot}}$\fi}
+\newcommand{\Rsun}{\ifmmode {R_{\odot}}\else${R_{\odot}}$\fi}
+\newcommand{\lapprox }{{\lower0.8ex\hbox{$\buildrel <\over\sim$}}}
+\newcommand{\gapprox }{{\lower0.8ex\hbox{$\buildrel >\over\sim$}}}
+\newcommand{\mesa}{{\tt MESA}}
+\newcommand{\ace}{\ifmmode {\alpha_{\rm CE}}\else${\alpha_{\rm CE}}$\fi }
+
+\def\amin{\ifmmode^{\prime}\else$^{\prime}$\fi}
+\def\asec{\ifmmode^{\prime\prime}\else$^{\prime\prime}$\fi}
+\def\ctss{$10^{-2}$ counts s$^{-1}$}
+\def\ergcms{erg~cm$^{-2}$~s$^{-1}$}
+\def\ergs{erg~s$^{-1}$}
+\def\ROSAT{\it ROSAT}
+
+%\newcommand\T{\rule{0pt}{2.6ex}}       % Top strut
+%\newcommand\B{\rule[-1.2ex]{0pt}{0pt}} % Bottom strut
+%\setlength{\oddsidemargin}{.1in}
+%\setlength{\evensidemargin}{-.25in}
+
+\voffset=-0.2in
+\headheight=10pt
+\headsep=0.2in
+\textwidth=6.5in
+\textheight=9.0in
+\topmargin=-0.2in
+\footskip=20pt
+\oddsidemargin=0.0in
+\evensidemargin=0.0in
+
+
+%\setlength{\textheight}{9.0in}
+%\setlength{\textwidth}{6.5in}
+%\doublespacing
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{{\bf IFMR with DWDs}}
+
+
+\shorttitle{}
+\shortauthors{}
+\bibliographystyle{apj}
+
+\begin{document}
+
+\newcommand{\tauc}{\ifmmode {\tau_{\rm cool}}\else $\tau_{\rm cool}$\fi}
+\newcommand{\tauca}{\ifmmode {\tau_{\rm cool,1}}\else $\tau_{\rm cool,1}$\fi}
+\newcommand{\taucb}{\ifmmode {\tau_{\rm cool,2}}\else $\tau_{\rm cool,2}$\fi}
+\newcommand{\ta}{\ifmmode {\tau_1}\else $\tau_1$\fi}
+\newcommand{\tb}{\ifmmode {\tau_2}\else $\tau_2$\fi}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\given}{\,|\,}
+\newcommand{\der}{\ifmmode {\rm d}\else d\fi}
+
+
+
+\begin{center}
+{\large \textbf{\sc Constraining the Initial Final Mass Relation:}}\\
+{\large \textbf{\sc Using Wide Double White Dwarfs}}
+%\rule{6.5in}{1pt}
+\end{center}
+\normalsize
+
+\vspace{-0.1in}
+\noindent {\sc \bf 1.\ Introduction}
+
+White dwarfs (WDs) are formed from the complete evolution of intermediate mass stars from the Main Sequence through hydrogen burning, helium burning, and through mass loss on the Asymptotic Giant Branch (AGB). Since roughly half of all stars are found in some form of binary system, WD binaries are the endpoints of many stellar evolution channels. In particular, binaries composed of stars both massive enough to have completely evolved within a Hubble time, but physically separated enough to have never interacted through mass transfer or tidal effects will evolve into wide double WDs (DWDs).
+
+With quality spectra, wide DWDs can place constraints on the initial-final mass relation (IFMR), providing the mass of a WD a given initial mass star will evolve into. Fitting WD spectra to templates provide measurements of log $g$ and $T_{\rm eff}$ which can then be mapped into a WD mass and cooling age. Assuming that wide DWDs are coeval and independent implies $\Delta \tau_{\rm cool} = \Delta \tau_{\rm pre-WD}$. $\Delta \tau_{\rm cool}$ is readily determined from the difference in the derived WD cooling ages. For a particular IFMR, the initial mass can be determined from the derived WD masses. Stellar evolution codes provide the pre-WD lifetime as a function of initial mass.  Comparing the difference in the pre-WD lifetimes with the cooling age differences then provides a measure of the accuracy of the assumed IFMR used. 
+
+Rather than produce constraints on the relation itself, we are interested in constraining physical relevant stellar evolution parameters. In particular, these involve the core mass at the first thermal pulse, and wind mass loss rate, and the efficiency of the so-called third dredge up during the thermally pulsing AGB phase. We construct this problem using a perturbative approach: we use the values of these parameterizations expected from stellar evolution simulations and apply linear perturbations. This methodology allows us to physically motivated models while using relatively few parameters.
+
+
+
+\noindent {\sc \bf 2.\ Statistical Method}
+ 
+We wish to apply a parametric model for the IFMR, where $\theta$ are our model parameters and $D$ are the set of observables, in this case the individual WD masses and cooling ages, $M_1, M_2, \tauca$ and $\taucb$. Our method relies on two primary assumptions. First, that the WDs in wide DWDs are coeval and truly independent, and second that the same IFMR can be applied to all the WDs in our sample. We address each of these assumptions in Section {\bf assumptions}. If these assumptions are satisfied, we can conclude that the difference in the WD cooling ages in the pair must be equal to the negative of the difference in the pre-WD lifetimes:
+\begin{equation}
+\tauca - \taucb = \tb - \ta.
+%\tauca - \taucb = \tau_{\rm pre-WD,2} - \tau_{\rm pre-WD,1}.
+\end{equation}
+Here, $\tauca$ and $\taucb$ are directly observed and $\ta$  and $\tb$ can be obtained by a functional transformation from $M_{\rm WD, 1}$ and $M_{\rm WD, 2}$, respectively:
+\begin{eqnarray}
+\ta &=& f(M_{\rm ZAMS}) \\
+&=& f[g^{-1}(M_{\rm WD})]
+\end{eqnarray}
+where $f(M_{\rm ZAMS})$ is the stellar lifetime function, and $g(M_{\rm ZAMS})$ is the IFMR. We have applied the inverse IFMR, $g^{-1}(M_{\rm WD})$ to obtain $M_{\rm ZAMS}$ from the observed WD masses. Combining these, we obtain:
+\begin{equation}
+\tauca - \taucb = f[g^{-1}(M_{\rm WD,2})] - f[g^{-1}(M_{\rm WD,1})]. \label{eqn:delta_delta}
+\end{equation}
+Since $f(M_{\rm ZAMS})$ can be determined with accuracy from stellar evolution codes, constraining the IFMR now involves finding the best $g(M_{\rm ZAMS})$ to satisfy the Equation \ref{eqn:delta_delta}.
+
+
+We now construct our statistical model to find the optimal parametric model for the IFMR. We begin with Bayes's rule:
+\begin{equation}
+P(\bs{\theta} \given \bs{D}) = \frac{P(\bs{D} \given \bs{\theta}) P(\bs{\theta})}{P(\bs{D})},
+\end{equation}
+where $P(\bs{\theta} \given \bs{D})$\footnote{Bold symbols refer to sets of quantities.} is the posterior probability we are looking for, $P(D)$ is a constant dependent only on the data, $P(\bs{\theta})$ are the priors on our model, and $P(\bs{D} \given \bs{\theta})$ is the likelihood. The posterior probability over the set of data is a product over individual measurements:
+\begin{equation}
+P(\bs{D} \given \bs{\theta}) = \prod_i P(D \given \bs{\theta}). \label{eq:prod_like}
+\end{equation}
+We now substitute in the individual observables:
+\begin{equation}
+P(D \given \bs{\theta}) = P(M_1, M_2, \Delta \tauc \given \bs{\theta}).
+\end{equation}
+
+To construct our likelihood function, we first marginalize over the true pre-WD lifetimes, $\ta'$ and $\tb'$, and the true WD masses, $M_1'$ and $M_2'$:
+\begin{equation}
+P(D \given \bs{\theta}) = \int_0^{\infty}\int_0^{\infty} \int_0^{\infty} \int_0^{\infty} P(\ta', \tb', M_1', M_2', M_1, M_2, \Delta \tauc \given \bs{\theta}) ~\der \ta' ~\der \tb' ~\der M_1' ~\der M_2' .
+\end{equation}
+Hereafter, primed quantities refer to true values and unprimed quantities refer to observed parameters. Based on independence, this can be reduced:
+\begin{eqnarray}
+P(D \given \bs{\theta}) = \int_0^{\infty}\int_0^{\infty} \int_0^{\infty} \int_0^{\infty} & P(\Delta \tauc \given \ta', \tb', \bs{\theta})  P(\ta', M_1'  \given M_1, \bs{\theta}) ~P(\tb', M_2', \given M_2, \bs{\theta}) \nonumber \\ 
+ & \quad{} \times P(M_1, M_2) ~\der \ta' ~\der \tb' ~\der M_1' ~\der M_2'.  \label{eq:split_1}
+\end{eqnarray}
+Now we will split $P(\ta', M_1'  \given M_1, \bs{\theta})$ and the corresponding probability for the second WD:
+\begin{eqnarray}
+P(\ta', M_1'  \given M_1, \bs{\theta}) &=& P(\ta' \given M_1', \bs{\theta}) ~P(M_1' \given M_1) \\
+P(\ta', M_2'  \given M_2, \bs{\theta}) &=& P(\ta' \given M_2', \bs{\theta}) ~P(M_2' \given M_2). 
+\end{eqnarray}
+These can be combined with equations \ref{eq:split_1} to produce:
+\begin{eqnarray}
+P(D \given \bs{\theta}) &=& P(M_1, M_2) ~\int_0^{\infty}\int_0^{\infty} ~\der M_1' ~\der M_2' ~P(M_1' \given M_1) ~P(M_2' \given M_2) \nonumber \\
+&& \times \int_0^{\infty} \int_0^{\infty} ~\der \ta' ~\der \tb'  ~P(\Delta \tauc \given \ta', \tb') ~P(\ta' \given M_1', \bs{\theta})  ~P(\tb' \given M_2', \bs{\theta}) .  \label{eq:split_2}
+\end{eqnarray}
+The probabilities $P(\ta' \given M_1', \bs{\theta})$ and $P(\tb' \given M_2', \bs{\theta})$ are equal to delta functions:
+\begin{eqnarray}
+P(\ta' \given M_1', \bs{\theta}) &=& \delta \left[ M_1' - f \left( g^{-1}(\ta') \right) \right] \\
+P(\tb' \given M_2', \bs{\theta}) &=& \delta \left[ M_2' - f \left( g^{-1}(\tb') \right) \right].
+\end{eqnarray}
+The inner integrals over \ta' and \tb' can then be reduced to:
+\begin{equation}
+\int_0^{\infty} \int_0^{\infty} ~\der \ta' ~\der \tb'  ~P(\Delta \tauc \given \ta', \tb') ~\delta \left[ M_1' - f \left( g^{-1}(\ta') \right) \right] ~\delta \left[ M_2' - f \left( g^{-1}(\tb') \right) \right]. \label{eq:inner_integral}
+\end{equation}
+This expression is a double integral, each of the form:
+\begin{equation}
+\int dx ~F(x) ~\delta \left[ G(x) \right] = \sum_j F(x_j^*) \begin{vmatrix} \frac{\partial G(x_j^*)}{ \partial x} \end{vmatrix} ^{-1}
+\end{equation}
+where the sum is over the roots, $x_j^*$, of $G(x)$. Since the stellar lifetime as a function of WD mass is a one-to-one correspondence, there is a single root to each of the delta functions in equation \ref{eq:inner_integral}. The integrals over \ta$'$ and \tb$'$ can then be reduced to:
+\begin{equation}
+P (\Delta \tauc \given \ta^*, \tb^* )  \begin{vmatrix} \frac{\partial \ta^*}{\partial M_1'} \end{vmatrix}^{-1} \begin{vmatrix} \frac{\partial \tb^*}{\partial M_2'} \end{vmatrix}^{-1} .
+\end{equation}
+where
+\begin{eqnarray}
+\tau_1^* &=& g\left( f^{-1}(M_1) \right) \label{eq:t1} \\
+\tau_2^* &=& g\left( f^{-1}(M_2) \right) \label{eq:t2}
+\end{eqnarray}
+
+
+This can be combined with equation \ref{eq:split_2} to produce:
+\begin{eqnarray}
+P(D \given \bs{\theta}) &=& P(M_1, M_2) ~\int_0^{\infty}\int_0^{\infty} ~\der M_1' ~\der M_2' ~P(M_1' \given M_1) ~P(M_2' \given M_2) \nonumber \\
+& & \times ~P(\Delta \tauc \given \ta^*, \tb^* ) \begin{vmatrix} \frac{\partial \ta^*}{\partial M_1'} \end{vmatrix}^{-1}  \begin{vmatrix} \frac{\partial \tb^*}{\partial M_2'} \end{vmatrix}^{-1} 
+\end{eqnarray}
+
+These integrals can be approximated by sums:
+\begin{equation}
+P(D \given \bs{\theta}) \approx P(M_1, M_2) \frac{1}{N} \frac{1}{M} \sum_{i=1}^N \sum_{j=1}^M  P(\Delta \tauc \given \tau_{1,i}^*, \tau_{2,j}^*) \begin{vmatrix} \frac{\partial \ta^*}{\partial M_1'} \end{vmatrix}^{-1}  \begin{vmatrix} \frac{\partial \tb^*}{\partial M_2'} \end{vmatrix}^{-1}  \label{eq:split_3}
+\end{equation}
+where the WD masses are randomly drawn from Gaussian distributions around their observed values, $M_1$ and $M_2$, with their associated observational uncertainties, then transformed into $\tau_{1,i}^*$ and $\tau_{2,j}^*$ using equations \ref{eq:t1} and \ref{eq:t2}:
+\begin{eqnarray}
+\tau_{1,i}^* &=& g\left( f^{-1}(M_1^*) \right); \quad M_1^* \sim \mathcal{N}(M_1, \sigma_{M_1}) \\
+\tau_{2,j}^* &=& g\left( f^{-1}(M_2^*) \right); \quad M_2^* \sim \mathcal{N}(M_2, \sigma_{M_2}).
+\end{eqnarray}
+Since the WDs are independent, the sums in equation \ref{eq:split_3} can be combined:
+\begin{equation}
+P(D \given \bs{\theta}) \approx P(M_1, M_2) ~\frac{1}{K} \sum_{k=1}^{K} P(\Delta \tauc \given \tau_{1,k}^*, \tau_{2,k}^*) \begin{vmatrix} \frac{\partial \ta^*}{\partial M_1'} \end{vmatrix}^{-1}  \begin{vmatrix} \frac{\partial \tb^*}{\partial M_2'} \end{vmatrix}^{-1}  \label{eq:split_4}
+\end{equation}
+The first term in the sum is simply a normal distribution centered around the observed cooling age difference, $\Delta \tau_{\rm cool}$, obtained from the difference of the individual observed cooling ages:
+\begin{equation}
+P(\Delta \tau_{\rm cool} \given \ta', \tb') = \frac{\mathcal{N} \left( \ta^* -\tb^* \given \Delta \tau_{\rm cool}, \sigma_{\Delta \tau_{\rm cool}} \right)}{\mathcal{N} \left( \ta^* -\tb^* \given \Delta \tau_{\rm cool}, \sigma_{\Delta \tau_{\rm cool}} \right)}. \label{eq:gauss_t_cool}
+\end{equation} 
+Here, $\sigma_{\Delta \tau_{\rm cool}}$ is the quadrature sum of the individual uncertainties on $\tau_{\rm cool,1}$ and $\tau_{\rm cool,2}$:
+\begin{equation}
+\sigma_{\Delta \tau_{\rm cool}} = \sqrt{\sigma_{\tau_{\rm cool,1}}^2 + \sigma_{\tau_{\rm cool,2}}^2}
+\end{equation}
+Our prior on the WD masses, $P(M_1, M_2)$ should be flat:
+\begin{equation}
+P(M_1, M_2) \propto 1.
+\end{equation}
+
+Here we must add a factor to ensure that degenerate models are equally likely. This is achieved by dividing the overall equation by the highest probability observational cooling age difference:
+\begin{equation}
+\frac{1}{\mathcal{N} \left( \ta^* -\tb^* \given \Delta \tau_{\rm cool}, \sigma_{\Delta \tau_{\rm cool}} \right)} \label{eq:norm_factor}
+\end{equation}
+
+Finally, we need to normalize our likelihood. Combining equations \ref{eq:split_4}, \ref{eq:gauss_t_cool}, and \ref{eq:norm_factor}, and normalizing, we arrive at our likelihood function:
+\begin{equation}
+P(D \given \bs{\theta}) \approx \frac{1}{K} \sum_{k=1}^{K}  \frac{\mathcal{N} \left( \ta^* -\tb^* \given \Delta \tau_{\rm cool}, \sigma_{\Delta \tau_{\rm cool}} \right)}{\mathcal{N} \left( \ta^* -\tb^* \given \Delta \tau_{\rm cool}, \sigma_{\Delta \tau_{\rm cool}} \right)} \begin{vmatrix} \frac{\partial \ta^*}{\partial M_1'} \end{vmatrix}^{-1}  \begin{vmatrix} \frac{\partial \tb^*}{\partial M_2'} \end{vmatrix}^{-1} \label{eq:likelihood}
+\end{equation}
+
+
+Finding the model parameters implied by our set of wide DWDs involves maximizing the likelihood function in Equation \ref{eq:likelihood}. We are interested in determining how precise of constraints we can place on these model parameters, therefore we choose a Monte Carlo technique rather than employing a maximum likelihood calculation. Specifically, we employ the Markov Chain Monte Carlo algorithm {\tt emcee} \citep{foreman-mackey13} which implements an affine invariant, emsemble sampler algorithm to search the parameter space \citep{goodman10}.
+
+
+
+
+%Substitute into equation \ref{eq:perturbed}:
+%\begin{equation}
+%M_f = \eta_{MS} M_{c,1TP} + \dot{M}(L) \left( M_i - \eta_{MS} M_{c,1TP}  \right) \frac{  \Delta t_{AGB}}{\eta_{\rm wind}} \left[ M_i - M_{c,1TP} - \dot{M}(L) \Delta t_{AGB} + \Delta M_{DUP} \right]^{-1}  - \eta_{\lambda} \Delta M_{DUP}
+%\end{equation}
+
+\clearpage
+
+
+%\setlength{\baselineskip}{1\baselineskip}
+%\bibliography{references}
+
+\end{document}
